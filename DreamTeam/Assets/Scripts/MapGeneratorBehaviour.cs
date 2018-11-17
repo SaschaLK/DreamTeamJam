@@ -15,6 +15,7 @@ public class MapGeneratorBehaviour : MonoBehaviour {
     public float randomYOffsetRange;
     public Vector3 triggerPlaneOffset;
     public GameObject renderTriggerPlane;
+    public float buffer;
 
     private List<GameObject> ceilingTiles = new List<GameObject>();
     private List<GameObject> floorTiles = new List<GameObject>();
@@ -49,9 +50,19 @@ public class MapGeneratorBehaviour : MonoBehaviour {
             tile.transform.position = tile.transform.position + new Vector3(rowStartX, rowStartY, 0);
         }
         //Waveform / Disturbance in Row
+        //for (int i = 0; i < tileAmount; i++) {
+        //    if (i != 0) {
+        //        Debug.Log("Hello");
+        //        tiles[i].transform.position += new Vector3(0, Random.Range(-randomYOffsetRange, randomYOffsetRange) + (tiles[i - 1].transform.position.y - tiles[i].transform.position.y), 0);
+        //    }
+        //}
         for (int i = 0; i < tileAmount; i++) {
             if (i != 0) {
-                tiles[i].transform.position += new Vector3(0, Random.Range(-randomYOffsetRange, randomYOffsetRange) + (tiles[i - 1].transform.position.y - tiles[i].transform.position.y), 0);
+                float temp = Random.Range(-randomYOffsetRange, randomYOffsetRange);
+                if ((tiles[i].transform.position.y < startTileOffset.y && temp < 0) || (tiles[i].transform.position.y > startTileOffset.y*-1 + buffer && temp > 0)) {
+                    temp = temp / 100;
+                }
+                tiles[i].transform.position += new Vector3(0, temp + (tiles[i - 1].transform.position.y - tiles[i].transform.position.y), 0);
             }
         }
     }
