@@ -37,12 +37,22 @@ public class Player2 : MonoBehaviour
     void Update()
     {
         if (!isAlive) { return; }
-
         Run();
-        ClimbLadder();
+        //ClimbLadder();
         Jump();
+        Gravity();
         FlipSprite();
         Die();
+    }
+
+    private void Gravity() {
+        if (Input.GetKeyDown("t") || Input.GetKeyDown("w"))
+        {
+            myRigidBody2.gravityScale = myRigidBody2.gravityScale * -1;
+            //Player2.
+            // myRigidBody2.gravityScale = 0f;
+
+        }
     }
 
     private void Run()

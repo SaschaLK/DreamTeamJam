@@ -33,16 +33,41 @@ public class Player : MonoBehaviour
         gravityScaleAtStart = myRigidBody.gravityScale;
     }
 
+    private void Gravity()
+    {
+        if (Input.GetKeyDown("t") || Input.GetKeyDown("w"))
+        {
+            Debug.Log(myRigidBody.gravityScale);
+            myRigidBody.gravityScale = myRigidBody.gravityScale * -1;
+            Debug.Log(myRigidBody.gravityScale);
+            //Player2.
+            // myRigidBody2.gravityScale = 0f;
+
+        }
+    }
+
+    public float getGravityScale()
+    {
+        return myRigidBody.gravityScale;
+    }
+
+    public void setGravityScale(float newGravityScale)
+    {
+        myRigidBody.gravityScale = newGravityScale;
+        return;
+    }
+
     // Update is called once per frame
     void Update()
     {
         if (!isAlive) { return; }
 
         Run();
-        ClimbLadder();
+        //ClimbLadder();
         Jump();
         FlipSprite();
         Die();
+        Gravity();
     }
 
     private void Run()
