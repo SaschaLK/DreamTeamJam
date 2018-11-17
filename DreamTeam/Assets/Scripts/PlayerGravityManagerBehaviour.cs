@@ -28,6 +28,6 @@ public class PlayerGravityManagerBehaviour : MonoBehaviour {
         foreach(GameObject player in players) {
             player.GetComponent<SpriteRenderer>().flipY = !player.GetComponent<SpriteRenderer>().flipY;
         }
-        
+
     }
 }

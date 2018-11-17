@@ -196,7 +196,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startPos: {fileID: 1832708129}
   endPos: {fileID: 1342819434}
-  speed: 100
+  speed: 300
 --- !u!1 &49333796
 GameObject:
   m_ObjectHideFlags: 0
@@ -1117,7 +1117,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startPos: {fileID: 682333948}
   endPos: {fileID: 1926672533}
-  speed: 30
+  speed: 300
 --- !u!1001 &1638302889
 Prefab:
   m_ObjectHideFlags: 0
