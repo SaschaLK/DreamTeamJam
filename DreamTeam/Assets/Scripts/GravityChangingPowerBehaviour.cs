@@ -16,6 +16,9 @@ public class GravityChangingPowerBehaviour : MonoBehaviour {
 
     IEnumerator GravityChanging() {
         gravityChangingInProcess = true;
+        Player.instance.jumpSpeed *= -1;
+        Player2.instance.jumpSpeed *= -1;
+
         yield return new WaitForSeconds(gravityChangingPowerCooldown);
         gravityChangingInProcess = false;
     }

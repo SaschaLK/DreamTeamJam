@@ -6,11 +6,11 @@ using UnityStandardAssets.CrossPlatformInput;
 
 public class Player : MonoBehaviour
 {
+    public static Player instance;
 
     // Config 
     [SerializeField] float runSpeed = 5f;
-    [SerializeField] float jumpSpeed = 5f;
-    [SerializeField] float climbSpeed = 5f;
+    public float jumpSpeed = 5f;
     [SerializeField] Vector2 deathKick = new Vector2(25f, 25f);
 
     // State
@@ -20,25 +20,25 @@ public class Player : MonoBehaviour
     Rigidbody2D myRigidBody;
     Animator myAnimator;
     CapsuleCollider2D myBodyCollider;
-    float gravityScaleAtStart;
+
+    private void Awake() {
+        instance = this;
+        gameObject.SetActive(false);
+    }
 
     // Message then methods
     void Start()
     {
-        
         myRigidBody = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
         myBodyCollider = GetComponent<CapsuleCollider2D>();
-        gravityScaleAtStart = myRigidBody.gravityScale;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (!isAlive) { return; }
 
         Run();
-        //ClimbLadder();
         Jump();
         FlipSprite();
         Die();
@@ -46,50 +46,29 @@ public class Player : MonoBehaviour
 
     private void Run()
     {
-        float controlThrow = CrossPlatformInputManager.GetAxis("Horizontal"); // value is betweeen -1 to +1
+        float controlThrow = CrossPlatformInputManager.GetAxis("Horizontal_Player1"); // value is betweeen -1 to +1
         Vector2 playerVelocity = new Vector2(controlThrow * runSpeed, myRigidBody.velocity.y);
         myRigidBody.velocity = playerVelocity;
-
-        //bool playerHasHorizontalSpeed = Mathf.Abs(myRigidBody.velocity.x) > Mathf.Epsilon;
-        //myAnimator.SetBool("Running", playerHasHorizontalSpeed);
-    }
-
-    private void ClimbLadder()
-    {
-        if (!myBodyCollider.IsTouchingLayers(LayerMask.GetMask("Climbing")))
-        {
-            //myAnimator.SetBool("Climbing", false);
-            myRigidBody.gravityScale = gravityScaleAtStart;
-            return;
-        }
-
-        float controlThrow = CrossPlatformInputManager.GetAxis("Vertical");
-        Vector2 climbVelocity = new Vector2(myRigidBody.velocity.x, controlThrow * climbSpeed);
-        myRigidBody.velocity = climbVelocity;
-        myRigidBody.gravityScale = 0f;
-
-        bool playerHasVerticalSpeed = Mathf.Abs(myRigidBody.velocity.y) > Mathf.Epsilon;
-        myAnimator.SetBool("Climbing", playerHasVerticalSpeed);
-
     }
 
     private void Jump()
     {
         if (!myBodyCollider.IsTouchingLayers(LayerMask.GetMask("Ground"))) { return; }
-        if (Input.GetKeyDown("w"))
+        if (Input.GetButtonDown("Vertical_Player1"))
         {
             Vector2 jumpVelocityToAdd = new Vector2(0f, jumpSpeed);
             myRigidBody.velocity += jumpVelocityToAdd;
         }
     }
 
-    private void Die()
+    public void Die()
     {
         if (myBodyCollider.IsTouchingLayers(LayerMask.GetMask("Enemy")))
         {
-            isAlive = false;
-            myAnimator.SetTrigger("Dying");
-            GetComponent<Rigidbody2D>().velocity = deathKick;
+            //isAlive = false;
+            //myAnimator.SetTrigger("Dying");
+            //GetComponent<Rigidbody2D>().velocity = deathKick;
+            gameObject.SetActive(false);
         }
     }
 
