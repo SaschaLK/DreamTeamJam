@@ -147,5 +147,5 @@ MonoBehaviour:
   floorCeilingOffset: {x: 1.3, y: 0, z: 0}
   floorOffset: {x: -8.5, y: -4.7, z: 0}
   randomYOffsetRange: 0.3
-  triggerPlaneOffset: {x: 29.85, y: 0, z: 0}
+  triggerPlaneOffset: {x: 39, y: 0, z: 0}
   renderTriggerPlane: {fileID: 1400618156854472}
