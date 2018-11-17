@@ -26,9 +26,9 @@ public class Player2 : MonoBehaviour
     // Message then methods
     void Start()
     {
-        Vector3 theScale = transform.localScale;
-        theScale.y *= -1;
-        transform.localScale = theScale;
+        //Vector3 theScale = transform.localScale;
+        //theScale.y *= -1;
+        //transform.localScale = theScale;
         myRigidBody2 = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
         myBodyCollider = GetComponent<CapsuleCollider2D>();
