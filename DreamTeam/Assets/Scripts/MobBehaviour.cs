@@ -6,19 +6,17 @@ public class MobBehaviour : MonoBehaviour {
 
     [SerializeField] float moveSpeed = 1f;
     Rigidbody2D myRigidBody;
-    private Transform Target;
+    public Transform Target;
 
     // Use this for initialization
     void Start() {
+        Target = PlayerGravityManagerBehaviour.instance.players[Random.Range(0,2)].transform;
         myRigidBody = GetComponent<Rigidbody2D>();
-
-        Target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
 
     // Update is called once per frame
     void Update() {
         transform.position = Vector2.MoveTowards(transform.position, Target.position, moveSpeed * Time.deltaTime);
-
     }
 
 

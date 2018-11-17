@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class MobSpawner : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public GameObject mob;
+
+    private void Start() {
+        StartCoroutine(Spawn());
+    }
+
+    IEnumerator Spawn() {
+        while (true) {
+            yield return new WaitForSeconds(5f);
+            Instantiate(mob);
+        }
+    }
 }
