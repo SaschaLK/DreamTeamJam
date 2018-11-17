@@ -9,7 +9,7 @@ public class MainMenuScript : MonoBehaviour
     public void PlayGame() {
 
         Debug.Log("Play!");
-       // SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+       SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void QuitGame()
