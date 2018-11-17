@@ -411,6 +411,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 372f33903b345f346b065027c0d08c85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gravityChangingPowerCooldown: 1.5
 --- !u!1 &2105997708
 GameObject:
   m_ObjectHideFlags: 0
