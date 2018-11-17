@@ -36,9 +36,9 @@ public class Flipper : MonoBehaviour {
     public IEnumerator Move()
     {
         Debug.Log("move"); 
-        Debug.Log(journeyFraction < 0.12f);
+        Debug.Log(journeyFraction < 0.5f);
         Debug.Log("Move"); 
-        while (journeyFraction < 0.12f)
+        while (journeyFraction < 0.5f)
         {
             Debug.Log(journeyFraction); 
             float currentDuration = (Time.time - startTime) * speed;
@@ -54,16 +54,19 @@ public class Flipper : MonoBehaviour {
             yield return new WaitForEndOfFrame(); 
         }
 
+
         startTime = Time.time;
 
         if (flipped)
         {
+            rect.anchoredPosition = startPos.anchoredPosition; 
             totalDistance = Vector3.Distance(endPos.anchoredPosition, startPos.anchoredPosition);
         } else
         {
+            rect.anchoredPosition = endPos.anchoredPosition;  
             totalDistance = Vector3.Distance(startPos.anchoredPosition, endPos.anchoredPosition);
         }
-        journeyFraction = 0.2f;
+        journeyFraction = 1f;
 
         flipped = !flipped;
     }
