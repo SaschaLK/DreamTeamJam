@@ -360,9 +360,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1534696d1930024f8d97f290be968d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runSpeed: 5
-  jumpSpeed: 5
-  climbSpeed: 5
+  runSpeed: 10
+  jumpSpeed: 24
+  climbSpeed: 7
   deathKick: {x: 25, y: 25}
 --- !u!61 &1677365428
 BoxCollider2D:
