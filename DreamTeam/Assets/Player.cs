@@ -77,7 +77,7 @@ public class Player : MonoBehaviour
     private void Jump()
     {
         if (!myFeet.IsTouchingLayers(LayerMask.GetMask("Ground"))) { return; }
-        if (CrossPlatformInputManager.GetButtonDown("Jump"))
+        if (Input.GetKeyDown("w"))
         {
             Vector2 jumpVelocityToAdd = new Vector2(0f, jumpSpeed);
             myRigidBody.velocity += jumpVelocityToAdd;
