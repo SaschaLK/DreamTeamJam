@@ -15,6 +15,7 @@ public class PlayerGravityManagerBehaviour : MonoBehaviour {
 
     private void Start() {
         foreach(GameObject player in players) {
+            player.SetActive(true);
             playerRigidbodies.Add(player.GetComponent<Rigidbody2D>());
         }
     }

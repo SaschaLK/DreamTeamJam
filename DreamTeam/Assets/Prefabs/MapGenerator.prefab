@@ -142,11 +142,11 @@ MonoBehaviour:
   tileAmount: 60
   renderedTileAmount: 30
   floorPrefabTiles:
-  - {fileID: 1231020848451398, guid: 0f32d11f14362eb43bd0f8ae06eef067, type: 2}
+  - {fileID: 1609761674625086, guid: 0f32d11f14362eb43bd0f8ae06eef067, type: 2}
   ceilingPrefabTiles:
-  - {fileID: 1900635079506984, guid: 75cf42cb220d93c4faa237ff74bb8d8c, type: 2}
+  - {fileID: 1568082447907172, guid: 75cf42cb220d93c4faa237ff74bb8d8c, type: 2}
   SingleTileOffset: {x: 1.3, y: 0, z: 0}
-  startTileOffset: {x: -8.5, y: -4.7, z: 0}
+  startTileOffset: {x: -8.5, y: -4.5, z: 0}
   randomYOffsetRange: 0.3
   triggerPlaneOffset: {x: 39, y: 0, z: 0}
   renderTriggerPlane: {fileID: 1400618156854472}

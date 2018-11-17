@@ -25,7 +25,7 @@ public class Player : MonoBehaviour
         instance = this;
         gameObject.SetActive(false);
     }
-
+    
     // Message then methods
     void Start()
     {
@@ -65,9 +65,7 @@ public class Player : MonoBehaviour
     {
         if (myBodyCollider.IsTouchingLayers(LayerMask.GetMask("Enemy")))
         {
-            //isAlive = false;
-            //myAnimator.SetTrigger("Dying");
-            //GetComponent<Rigidbody2D>().velocity = deathKick;
+            
             gameObject.SetActive(false);
         }
     }
