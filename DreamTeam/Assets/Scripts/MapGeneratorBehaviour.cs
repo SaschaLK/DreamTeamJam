@@ -11,6 +11,7 @@ public class MapGeneratorBehaviour : MonoBehaviour {
     public List<GameObject> floorPrefabTiles = new List<GameObject>();
     public List<GameObject> ceilingPrefabTiles = new List<GameObject>();
     public Vector3 floorCeilingOffset;
+    public Vector3 floorOffset;
     public Vector3 triggerPlaneOffset;
     public GameObject renderTriggerPlane;
 
@@ -26,10 +27,17 @@ public class MapGeneratorBehaviour : MonoBehaviour {
 
         for(int i = 0; i < tileAmount; i++) {
             floorTiles.Add(Instantiate(floorPrefabTiles[Random.Range(0, floorPrefabTiles.Count - 1)], gameObject.transform));
+            if (i != 0) {
+                floorTiles[i].transform.position = floorTiles[i - 1].transform.position + floorCeilingOffset;
+            }
+            //floorTiles[i].transform.position.Set(floorTiles[i].transform.position.x, floorOffset.y, floorTiles[i].transform.position.z);
         }
+        foreach(GameObject floorTile in floorTiles) {
+            floorTile.transform.position = floorTile.transform.position + floorOffset;
+        }
+
     }
 
     public void GenerateMapSegment() {
-
     }
 }
