@@ -76,9 +76,7 @@ public class Player : MonoBehaviour
 
     private void Jump()
     {
-        Debug.Log("IsTouching: " + myFeet.IsTouchingLayers(LayerMask.GetMask("Ground")));
         if (!myFeet.IsTouchingLayers(LayerMask.GetMask("Ground"))) { return; }
-        Debug.Log("You Should jump!");
         if (CrossPlatformInputManager.GetButtonDown("Jump"))
         {
             Vector2 jumpVelocityToAdd = new Vector2(0f, jumpSpeed);
