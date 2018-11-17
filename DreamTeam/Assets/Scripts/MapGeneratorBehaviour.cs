@@ -12,6 +12,7 @@ public class MapGeneratorBehaviour : MonoBehaviour {
     public List<GameObject> ceilingPrefabTiles = new List<GameObject>();
     public Vector3 floorCeilingOffset;
     public Vector3 floorOffset;
+    public float randomYOffsetRange;
     public Vector3 triggerPlaneOffset;
     public GameObject renderTriggerPlane;
 
@@ -30,14 +31,20 @@ public class MapGeneratorBehaviour : MonoBehaviour {
             if (i != 0) {
                 floorTiles[i].transform.position = floorTiles[i - 1].transform.position + floorCeilingOffset;
             }
-            //floorTiles[i].transform.position.Set(floorTiles[i].transform.position.x, floorOffset.y, floorTiles[i].transform.position.z);
         }
         foreach(GameObject floorTile in floorTiles) {
             floorTile.transform.position = floorTile.transform.position + floorOffset;
+        }
+        for(int i = 0; i < tileAmount; i++) {
+            if (i != 0) {
+                //Random.Range(-randomYOffsetRange, randomYOffsetRange)
+                floorTiles[i].transform.position += new Vector3(0, Random.Range(-randomYOffsetRange, randomYOffsetRange) + (floorTiles[i-1].transform.position.y - floorTiles[i].transform.position.y), 0);
+            }
         }
 
     }
 
     public void GenerateMapSegment() {
+
     }
 }
