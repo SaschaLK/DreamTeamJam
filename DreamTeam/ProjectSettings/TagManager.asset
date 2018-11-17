@@ -13,13 +13,8 @@ TagManager:
   - UI
   - 
   - 
-<<<<<<< HEAD
   - Player
-  - TriggerPlaneMapGen
-=======
-  - Ground
-  - 
->>>>>>> bb7f7302fe8081979adc28527674acfa4bf7aeaa
+  - MapGenTriggerPlane
   - 
   - 
   - 

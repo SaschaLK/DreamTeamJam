@@ -7,11 +7,14 @@ public class MapGeneratorBehaviour : MonoBehaviour {
     public static MapGeneratorBehaviour instance;
 
     public int tileAmount;
-    public List<GameObject> floorTiles = new List<GameObject>();
-    public List<GameObject> ceilingTiles = new List<GameObject>();
+    public int renderedTileAmount;
+    public List<GameObject> floorPrefabTiles = new List<GameObject>();
+    public List<GameObject> ceilingPrefabTiles = new List<GameObject>();
     public Vector3 floorCeilingOffset;
     public Vector3 triggerPlaneOffset;
     public GameObject renderTriggerPlane;
+
+    private List<GameObject> floorTiles = new List<GameObject>();
 
     private void Awake() {
         instance = this;
@@ -20,9 +23,13 @@ public class MapGeneratorBehaviour : MonoBehaviour {
     private void Start() {
         renderTriggerPlane.transform.position = triggerPlaneOffset;
         renderTriggerPlane.SetActive(true);
+
+        for(int i = 0; i < tileAmount; i++) {
+            floorTiles.Add(Instantiate(floorPrefabTiles[Random.Range(0, floorPrefabTiles.Count - 1)], gameObject.transform));
+        }
     }
 
     public void GenerateMapSegment() {
-        Debug.Log("Hello");
+
     }
 }
