@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GravityChangingPowerBehaviour : MonoBehaviour {
     //This script enables a player to change the Gravity
-    public float gravityChangingPowerCooldown;
+    public float gravityChangingPowerCooldown = 1.5f;
     private bool gravityChangingInProcess;
 
     private void Update() {
