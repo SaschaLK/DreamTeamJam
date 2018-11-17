@@ -157,6 +157,23 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114234266397907624, guid: 140003b6eb9362841a1b4ac768105276,
+        type: 2}
+      propertyPath: startTileOffset.y
+      value: -4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114234266397907624, guid: 140003b6eb9362841a1b4ac768105276,
+        type: 2}
+      propertyPath: floorPrefabTiles.Array.data[0]
+      value: 
+      objectReference: {fileID: 1524713933944742, guid: 0f32d11f14362eb43bd0f8ae06eef067,
+        type: 2}
+    - target: {fileID: 114234266397907624, guid: 140003b6eb9362841a1b4ac768105276,
+        type: 2}
+      propertyPath: ceilingPrefabTiles.Array.data[0]
+      value: 
+      objectReference: {fileID: 1702196213227874, guid: 75cf42cb220d93c4faa237ff74bb8d8c,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 140003b6eb9362841a1b4ac768105276, type: 2}
   m_IsPrefabAsset: 0
