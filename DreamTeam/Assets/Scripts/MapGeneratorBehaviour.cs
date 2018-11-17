@@ -49,13 +49,6 @@ public class MapGeneratorBehaviour : MonoBehaviour {
         foreach (GameObject tile in tiles) {
             tile.transform.position = tile.transform.position + new Vector3(rowStartX, rowStartY, 0);
         }
-        //Waveform / Disturbance in Row
-        //for (int i = 0; i < tileAmount; i++) {
-        //    if (i != 0) {
-        //        Debug.Log("Hello");
-        //        tiles[i].transform.position += new Vector3(0, Random.Range(-randomYOffsetRange, randomYOffsetRange) + (tiles[i - 1].transform.position.y - tiles[i].transform.position.y), 0);
-        //    }
-        //}
         for (int i = 0; i < tileAmount; i++) {
             if (i != 0) {
                 float temp = Random.Range(-randomYOffsetRange, randomYOffsetRange);

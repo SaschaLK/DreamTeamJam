@@ -5,16 +5,8 @@ using System.Threading;
 
 public class cameraDeath : MonoBehaviour
 {
-
-    private int speed = 1;
-
-    void Start()
-    {
-
-    }
-
-    void Update()
-    {
-        transform.Translate(new Vector3(speed * Time.deltaTime, 0, 0));
+    private void OnTriggerEnter2D(Collider2D collision) {
+        Player2.instance.Die();
+        Player.instance.Die();
     }
 }

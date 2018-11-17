@@ -23,6 +23,7 @@ public class Player2 : MonoBehaviour
 
     private void Awake() {
         instance = this;
+        gameObject.SetActive(true);
     }
 
     // Message then methods
@@ -61,13 +62,14 @@ public class Player2 : MonoBehaviour
         }
     }
 
-    private void Die()
+    public void Die()
     {
         if (myBodyCollider.IsTouchingLayers(LayerMask.GetMask("Enemy")))
         {
-            isAlive = false;
-            myAnimator.SetTrigger("Dying");
-            GetComponent<Rigidbody2D>().velocity = deathKick;
+            //isAlive = false;
+            //myAnimator.SetTrigger("Dying");
+            //GetComponent<Rigidbody2D>().velocity = deathKick;
+            gameObject.SetActive(false);
         }
     }
 
