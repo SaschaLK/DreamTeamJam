@@ -53,3 +53,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   players:
   - {fileID: 0}
+  - {fileID: 0}

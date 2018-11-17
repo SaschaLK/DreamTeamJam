@@ -20,7 +20,6 @@ public class Player2 : MonoBehaviour
     Rigidbody2D myRigidBody2;
     Animator myAnimator;
     CapsuleCollider2D myBodyCollider;
-    BoxCollider2D myFeet2;
     float gravityScaleAtStart;
 
     // Message then methods
@@ -32,7 +31,6 @@ public class Player2 : MonoBehaviour
         myRigidBody2 = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
         myBodyCollider = GetComponent<CapsuleCollider2D>();
-        myFeet2 = GetComponent<BoxCollider2D>();
         gravityScaleAtStart = myRigidBody2.gravityScale;
     }
 
@@ -43,17 +41,8 @@ public class Player2 : MonoBehaviour
         Run();
         //ClimbLadder();
         Jump();
-        Gravity();
         FlipSprite();
         Die();
-    }
-
-    private void Gravity() {
-        if (Input.GetButtonDown("GravityChanger") && Input.GetButtonDown("GravityChanger2"))
-        {
-            
-
-        }
     }
 
     private void Run()
@@ -62,13 +51,13 @@ public class Player2 : MonoBehaviour
         Vector2 playerVelocity = new Vector2(controlThrow * runSpeed, myRigidBody2.velocity.y);
         myRigidBody2.velocity = playerVelocity;
 
-        bool playerHasHorizontalSpeed = Mathf.Abs(myRigidBody2.velocity.x) > Mathf.Epsilon;
+        //bool playerHasHorizontalSpeed = Mathf.Abs(myRigidBody2.velocity.x) > Mathf.Epsilon;
         //myAnimator.SetBool("Running", playerHasHorizontalSpeed);
     }
 
     private void ClimbLadder()
     {
-        if (!myFeet2.IsTouchingLayers(LayerMask.GetMask("Climbing")))
+        if (!myBodyCollider.IsTouchingLayers(LayerMask.GetMask("Climbing")))
         {
             //myAnimator.SetBool("Climbing", false);
             myRigidBody2.gravityScale = gravityScaleAtStart;
@@ -88,7 +77,7 @@ public class Player2 : MonoBehaviour
     private void Jump()
     {
         
-        if (!myFeet2.IsTouchingLayers(LayerMask.GetMask("Ground"))) { return; }
+        if (!myBodyCollider.IsTouchingLayers(LayerMask.GetMask("Ground"))) { return; }
         if (Input.GetKeyDown("up"))
         {
             Vector2 jumpVelocityToAdd = new Vector2(0f, jumpSpeed);

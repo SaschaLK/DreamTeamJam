@@ -24,5 +24,8 @@ public class PlayerGravityManagerBehaviour : MonoBehaviour {
         foreach(Rigidbody2D playerRigidbody in playerRigidbodies) {
             playerRigidbody.gravityScale = playerRigidbody.gravityScale * -1;
         }
+        foreach(GameObject player in players) {
+            player.GetComponent<SpriteRenderer>().flipY = !player.GetComponent<SpriteRenderer>().flipY;
+        }
     }
 }
