@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class PlayerBehaviour : MonoBehaviour {
 
-	// Use this for initialization
 	void Start () {
-		
+		//my code here
 	}
 	
 	// Update is called once per frame
