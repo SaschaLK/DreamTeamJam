@@ -49,9 +49,9 @@ public class Player2 : MonoBehaviour
     }
 
     private void Gravity() {
-        if (Input.GetKeyDown("t") || Input.GetKeyDown("w"))
+        if (Input.GetButtonDown("GravityChanger") && Input.GetButtonDown("GravityChanger2"))
         {
-       
+            
 
         }
     }
