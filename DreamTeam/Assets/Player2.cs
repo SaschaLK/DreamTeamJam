@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 
-public class Player : MonoBehaviour
+public class Player2 : MonoBehaviour
 {
 
     // Config 
@@ -17,81 +17,82 @@ public class Player : MonoBehaviour
     bool isAlive = true;
 
     // Cached component references
-    Rigidbody2D myRigidBody;
+    Rigidbody2D myRigidBody2;
     Animator myAnimator;
     CapsuleCollider2D myBodyCollider;
-    BoxCollider2D myFeet;
+    BoxCollider2D myFeet2;
     float gravityScaleAtStart;
 
     // Message then methods
     void Start()
     {
-        
-        myRigidBody = GetComponent<Rigidbody2D>();
+        Vector3 theScale = transform.localScale;
+        theScale.y *= -1;
+        transform.localScale = theScale;
+        myRigidBody2 = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
         myBodyCollider = GetComponent<CapsuleCollider2D>();
-        myFeet = GetComponent<BoxCollider2D>();
-        gravityScaleAtStart = myRigidBody.gravityScale;
-    }
-
-    private void Gravity()
-    {
-        if (Input.GetButtonDown("GravityChanger") && Input.GetButtonDown("GravityChanger2"))
-        {
-
-
-        }
+        myFeet2 = GetComponent<BoxCollider2D>();
+        gravityScaleAtStart = myRigidBody2.gravityScale;
     }
 
     // Update is called once per frame
     void Update()
     {
         if (!isAlive) { return; }
-
         Run();
         //ClimbLadder();
         Jump();
+        Gravity();
         FlipSprite();
         Die();
-        Gravity();
+    }
+
+    private void Gravity() {
+        if (Input.GetButtonDown("GravityChanger") && Input.GetButtonDown("GravityChanger2"))
+        {
+            
+
+        }
     }
 
     private void Run()
     {
-        float controlThrow = CrossPlatformInputManager.GetAxis("Horizontal"); // value is betweeen -1 to +1
-        Vector2 playerVelocity = new Vector2(controlThrow * runSpeed, myRigidBody.velocity.y);
-        myRigidBody.velocity = playerVelocity;
+        float controlThrow = CrossPlatformInputManager.GetAxis("Horizontal2"); // value is betweeen -1 to +1
+        Vector2 playerVelocity = new Vector2(controlThrow * runSpeed, myRigidBody2.velocity.y);
+        myRigidBody2.velocity = playerVelocity;
 
-        bool playerHasHorizontalSpeed = Mathf.Abs(myRigidBody.velocity.x) > Mathf.Epsilon;
+        bool playerHasHorizontalSpeed = Mathf.Abs(myRigidBody2.velocity.x) > Mathf.Epsilon;
         //myAnimator.SetBool("Running", playerHasHorizontalSpeed);
     }
 
     private void ClimbLadder()
     {
-        if (!myFeet.IsTouchingLayers(LayerMask.GetMask("Climbing")))
+        if (!myFeet2.IsTouchingLayers(LayerMask.GetMask("Climbing")))
         {
             //myAnimator.SetBool("Climbing", false);
-            myRigidBody.gravityScale = gravityScaleAtStart;
+            myRigidBody2.gravityScale = gravityScaleAtStart;
             return;
         }
 
         float controlThrow = CrossPlatformInputManager.GetAxis("Vertical");
-        Vector2 climbVelocity = new Vector2(myRigidBody.velocity.x, controlThrow * climbSpeed);
-        myRigidBody.velocity = climbVelocity;
-        myRigidBody.gravityScale = 0f;
+        Vector2 climbVelocity = new Vector2(myRigidBody2.velocity.x, controlThrow * climbSpeed);
+        myRigidBody2.velocity = climbVelocity;
+        myRigidBody2.gravityScale = 0f;
 
-        bool playerHasVerticalSpeed = Mathf.Abs(myRigidBody.velocity.y) > Mathf.Epsilon;
+        bool playerHasVerticalSpeed = Mathf.Abs(myRigidBody2.velocity.y) > Mathf.Epsilon;
         myAnimator.SetBool("Climbing", playerHasVerticalSpeed);
 
     }
 
     private void Jump()
     {
-        if (!myFeet.IsTouchingLayers(LayerMask.GetMask("Ground"))) { return; }
-        if (Input.GetKeyDown("w"))
+        
+        if (!myFeet2.IsTouchingLayers(LayerMask.GetMask("Ground"))) { return; }
+        if (Input.GetKeyDown("up"))
         {
             Vector2 jumpVelocityToAdd = new Vector2(0f, jumpSpeed);
-            myRigidBody.velocity += jumpVelocityToAdd;
+            myRigidBody2.velocity += jumpVelocityToAdd;
         }
     }
 
@@ -108,10 +109,10 @@ public class Player : MonoBehaviour
     private void FlipSprite()
     {
         float scaleScalar = Mathf.Abs(transform.localScale.x);
-        bool playerHasHorizontalSpeed = Mathf.Abs(myRigidBody.velocity.x) > Mathf.Epsilon;
+        bool playerHasHorizontalSpeed = Mathf.Abs(myRigidBody2.velocity.x) > Mathf.Epsilon;
         if (playerHasHorizontalSpeed)
         {
-            transform.localScale = new Vector3(Mathf.Sign(myRigidBody.velocity.x), 1f, 1f) * scaleScalar;
+            transform.localScale = new Vector3(Mathf.Sign(myRigidBody2.velocity.x), 1f, 1f) * scaleScalar;
         }
     }
 
