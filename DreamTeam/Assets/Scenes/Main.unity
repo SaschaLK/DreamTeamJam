@@ -362,6 +362,61 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 212326307561762472, guid: 880ad0df08e9829469786a9192fe7b45,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 0.5377358
+      objectReference: {fileID: 0}
+    - target: {fileID: 212326307561762472, guid: 880ad0df08e9829469786a9192fe7b45,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 0.5377358
+      objectReference: {fileID: 0}
+    - target: {fileID: 212326307561762472, guid: 880ad0df08e9829469786a9192fe7b45,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 0.5377358
+      objectReference: {fileID: 0}
+    - target: {fileID: 198674291192157078, guid: 880ad0df08e9829469786a9192fe7b45,
+        type: 2}
+      propertyPath: ColorModule.gradient.maxGradient.key1.a
+      value: 0.6784314
+      objectReference: {fileID: 0}
+    - target: {fileID: 198674291192157078, guid: 880ad0df08e9829469786a9192fe7b45,
+        type: 2}
+      propertyPath: ColorModule.gradient.maxGradient.key2.a
+      value: 0.69411767
+      objectReference: {fileID: 0}
+    - target: {fileID: 198674291192157078, guid: 880ad0df08e9829469786a9192fe7b45,
+        type: 2}
+      propertyPath: ColorModule.gradient.minGradient.key1.a
+      value: 0.2901961
+      objectReference: {fileID: 0}
+    - target: {fileID: 198674291192157078, guid: 880ad0df08e9829469786a9192fe7b45,
+        type: 2}
+      propertyPath: ColorModule.gradient.minGradient.key2.a
+      value: 0.38431373
+      objectReference: {fileID: 0}
+    - target: {fileID: 198674291192157078, guid: 880ad0df08e9829469786a9192fe7b45,
+        type: 2}
+      propertyPath: ColorModule.gradient.minGradient.key3.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198674291192157078, guid: 880ad0df08e9829469786a9192fe7b45,
+        type: 2}
+      propertyPath: ColorModule.gradient.minGradient.atime2
+      value: 56861
+      objectReference: {fileID: 0}
+    - target: {fileID: 198674291192157078, guid: 880ad0df08e9829469786a9192fe7b45,
+        type: 2}
+      propertyPath: ColorModule.gradient.minGradient.atime3
+      value: 65535
+      objectReference: {fileID: 0}
+    - target: {fileID: 198674291192157078, guid: 880ad0df08e9829469786a9192fe7b45,
+        type: 2}
+      propertyPath: ColorModule.gradient.minGradient.m_NumAlphaKeys
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 880ad0df08e9829469786a9192fe7b45, type: 2}
   m_IsPrefabAsset: 0
