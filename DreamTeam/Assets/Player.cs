@@ -26,6 +26,7 @@ public class Player : MonoBehaviour
     // Message then methods
     void Start()
     {
+        
         myRigidBody = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
         myBodyCollider = GetComponent<CapsuleCollider2D>();
@@ -37,24 +38,8 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown("t") || Input.GetKeyDown("w"))
         {
-            Debug.Log(myRigidBody.gravityScale);
-            myRigidBody.gravityScale = myRigidBody.gravityScale * -1;
-            Debug.Log(myRigidBody.gravityScale);
-            //Player2.
-            // myRigidBody2.gravityScale = 0f;
 
         }
-    }
-
-    public float getGravityScale()
-    {
-        return myRigidBody.gravityScale;
-    }
-
-    public void setGravityScale(float newGravityScale)
-    {
-        myRigidBody.gravityScale = newGravityScale;
-        return;
     }
 
     // Update is called once per frame
